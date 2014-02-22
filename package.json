@@ -1,6 +1,6 @@
 {
     "name": "jiraff",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "author": "vitkarpov <viktor.s.karpov@gmail.com>",
     "description": "Jiraff is nodejs module which provides a simple wrapper for the JIRA REST API",
     "repository": {
