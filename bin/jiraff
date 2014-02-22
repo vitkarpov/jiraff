@@ -18,13 +18,19 @@ var method = args._[0] || false;
         return process.exit(1);
     }
 
-    jira[method](args).then(
-        function(result) {
-            process.stdout.write(result);
-        },
-        function(error) {
-            jira.logger(error, 'red');
-            process.exit(1);
-        }
-    );
+    jira.auth().then(function() {
+        jira[method](args).then(
+            function(result) {
+                jira.logger('Done!', 'green');
+                console.log(result);
+                process.exit(0);
+            },
+            onError
+        );
+    }, onError);
 }());
+
+function onError(error) {
+    jira.logger(error, 'red');
+    process.exit(1);
+}
