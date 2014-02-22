@@ -18,9 +18,7 @@ create `.jiraff` config file contains json:
     "host": "example.com",
     "port": "8081",
     "username": "vitkarpov",
-    "password": "***",
-    // turn off CLI logger
-    "debug": "false"
+    "password": "***"
 }
 ```
 
