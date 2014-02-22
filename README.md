@@ -46,9 +46,7 @@ var jiraff = new (require('jiraff'))({
     host: "jira.yandex-team.ru",
     port: "8081",
     username: ...,
-    password: ...,
-    // turn on log
-    debug: true
+    password: ...
 });
 ```
 
