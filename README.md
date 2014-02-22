@@ -33,28 +33,29 @@ Ensure that the path to the jiraff executable (`./node_modules/.bin`) is include
 For instance, you can search project using filter:
 
 ```
-> jiraff search -q="project = jiraff AND status in (open, resolved)"
+> jiraff search -q project = jiraff AND status in (open, resolved)
 ```
 
 ## Use as nodejs module
 
 Create new jiraff's instance:
 
-```
+```javascript
 var jiraff = new (require('jiraff'))({
     protocol: "https",
     host: "jira.yandex-team.ru",
     port: "8081",
     username: ...,
     password: ...,
-    "debug": false
+    // turn on log
+    debug: true
 });
 ```
 
 now it's time to call some api:
 
-```
-jiraff.auth().then(onSucces, onFail)
+```javascript
+jiraff.auth().then(onSuccess, onFail)
 
 function onSuccess() {
     // yep, we're in
@@ -70,13 +71,13 @@ function onFail(message) {
 
 ## Interface
 
-All methods should implement [Promise/A+ interface](http://promisesaplus.com/). Methods' names equals to Jira's HTTP API.
+All methods should implement [Promise/A+ interface](http://promisesaplus.com/). Methods' names equal Jira's HTTP API.
 
 ## Implemented methods
 
 There're only two methods implemented:
 
-```
+```javascript
 /**
  * You can specify extra settings
  * The same items defined with constructor will be overriden
@@ -87,23 +88,26 @@ There're only two methods implemented:
 jiraff.auth(settings);
 ```
 
+```javascript
 /**
  * @param {Object} settings
  *      q {String} search query in [JQL formatt](https://confluence.atlassian.com/display/JIRA/Advanced+Searching)
  */
-```
 jiraff.search({
     q: '...'
+}).then(function(response) {
+    // log: {'issues': [...], ...}
+    console.log(response)
 })
 ```
 
 # Contributing
 
-If you'd like to implement some methods from Jira HTTP API you're welcome!
+If you'd like to implement some more methods from Jira's HTTP API you're welcome!
 
 * [Find a method](https://docs.atlassian.com/jira/REST/latest/) you'd like to implement;
 * fork the repo;
-* make an issue, look at it's number — it's needed for a new feature branch name;
+* make an issue, look at the number — it's needed for a new feature's branch name;
 * checkout to the new branch `issue#...-implement-...-method`;
 * make pull request and wait a feedback. Thank you!
 
