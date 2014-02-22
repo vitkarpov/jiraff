@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var fs = require('fs');
+var path = require('path');
+
+var config = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../.jiraff')));
+var jira = new (require('../lib/jiraff'))(config);
+
+var args = require('minimist')(process.argv.slice(2));
+
+var method = args._[0] || false;
+
+(function() {
+    if (!method || !jira[method]) {
+        jira.logger('You should specify implemented action to retrieve from JIRA API', 'red');
+        return process.exit(1);
+    }
+
+    jira[method](args).then(
+        function(result) {
+            process.stdout.write(result);
+        },
+        function(error) {
+            jira.logger(error, 'red');
+            process.exit(1);
+        }
+    );
+}());

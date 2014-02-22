@@ -1,0 +1,19 @@
+{
+    "name": "jiraff",
+    "version": "0.1.0",
+    "author": "vitkarpov <viktor.s.karpov@gmail.com>",
+    "description": "Jiraff is nodejs module which provides a simple wrapper for the JIRA REST API",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vitkarpov/jiraff"
+    },
+    "dependencies": {
+        "vow": "0.4.x",
+        "vow-node": "0.2.x",
+        "request": "2.34.x",
+        "qs": "0.6.x",
+        "color-terminal": "*",
+        "minimist": "0.x"
+    },
+    "license": "MIT"
+}
