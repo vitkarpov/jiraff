@@ -101,6 +101,15 @@ jiraff.search({
 })
 ```
 
+## Test
+
+Code is under `mocha` for describing tests, `sinonjs` for stubbing requests and `shouldjs` for assertions.
+
+Call gulp to run tests:
+```
+gulp test
+```
+
 # Contributing
 
 If you'd like to implement some more methods from Jira's HTTP API you're welcome!
