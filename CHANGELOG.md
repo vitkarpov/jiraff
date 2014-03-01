@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.2
+
+* add gulp
+* add test
+
 ## 0.1.1
 
 * fix authorization: there were no cookie header
