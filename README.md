@@ -1,8 +1,8 @@
-# Nodejs wrapper for JIRA's REST API
+# A simple nodejs wrapper for the JIRA's RESTful API
 
 [![NPM version](https://badge.fury.io/js/jiraff.png)](http://badge.fury.io/js/jiraff)
 
-**Jiraff** is nodejs module which provides a simple wrapper for JIRA's REST API. You can use it as module itself and via CLI.
+**Jiraff** is nodejs module which provides a simple wrapper for the JIRA's RESTful API. You can use it as module itself and via CLI.
 
 [Original JIRA API](https://docs.atlassian.com/jira/REST/latest/)
 
