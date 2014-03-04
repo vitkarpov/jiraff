@@ -1,7 +1,7 @@
 # A simple nodejs wrapper for the JIRA's RESTful API
 
 [![NPM version](https://badge.fury.io/js/jiraff.png)](http://badge.fury.io/js/jiraff)
-[![Build Status](https://travis-ci.org/vitkarpov/jiraff.png?branch=master)](https://travis-ci.org/yandex-ui/nanoislands)
+[![Build Status](https://travis-ci.org/vitkarpov/jiraff.png?branch=master)](https://travis-ci.org/vitkarpov/jiraff)
 
 **Jiraff** is nodejs module which provides a simple wrapper for the JIRA's RESTful API. You can use it as module itself and via CLI.
 

@@ -9,6 +9,7 @@
     },
     "dependencies": {
         "vow": "0.4.x",
+        "vow-node": "0.2.x",
         "request": "2.34.x",
         "color-terminal": "*",
         "minimist": "0.x"
