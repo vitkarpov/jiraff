@@ -13,7 +13,7 @@
 npm i jiraff
 ```
 
-create `.jiraff` config file contains json:
+Create `.jiraff` (json) config file:
 
 ```json
 {
@@ -27,23 +27,26 @@ create `.jiraff` config file contains json:
 
 ## Use via CLI
 
-Ensure that the path to the jiraff executable (`./node_modules/.bin`) is included in your PATH environment variable.
+Ensure that a path to the jiraff's executable (`./node_modules/.bin`) is included in your PATH environment variable.
 
 ```
 > export PATH=./node_modules/.bin:$PATH
 ```
 
-For instance, you can search project using filter:
+Now you can search project using filter:
 
 ```
-> jiraff search -q project = jiraff AND status in (open, resolved)
+> jiraff search -q "project=jiraff AND status in (open, resolved)" > issues.json
 ```
 
-## Use as nodejs module
+Jiraff writes the result to the standart output (issue.json in this case)
 
-Create new jiraff's instance:
+## Use in nodejs
+
+Here's a simple example:
 
 ```javascript
+// create a new Jiraff's instance
 var jiraff = new (require('jiraff'))({
     protocol: "https",
     host: "jira.yandex-team.ru",
@@ -51,20 +54,27 @@ var jiraff = new (require('jiraff'))({
     username: ...,
     password: ...
 });
-```
 
-now it's time to call some api:
-
-```javascript
+// now Jiraff's API available in jiraff object
 jiraff.auth().then(onSuccess, onFail)
 
 function onSuccess() {
     // yep, we're in
+
+    jiraff.search({
+        q: 'project=jiraff AND status in (open, resolved)'
+    })
+        .then(processSearchResults)
 }
 
 function onFail(message) {
-    // log: Authentication failed. Status: 401
-    console.log(message)
+    console.log(message);
+    // --> Authentication failed. Status: 401
+}
+
+function processSearchResults(data) {
+    console.log(data);
+    // --> {total: 25, issues: [{..}, {...}], ...}
 }
 ```
 
@@ -92,12 +102,12 @@ jiraff.auth(settings);
 ```javascript
 /**
  * @param {Object} settings
- *      q {String} search query in [JQL formatt](https://confluence.atlassian.com/display/JIRA/Advanced+Searching)
+ *      q {String} JQL search query
  */
 jiraff.search({
-    q: '...'
+    q: 'project=jiraff AND status in (open, resolved)'
 }).then(function(response) {
-    // log: {'issues': [...], ...}
+    // log: {total: 25, issues: [...], ...}
     console.log(response)
 })
 ```
@@ -106,7 +116,7 @@ jiraff.search({
 
 Code is under `mocha` for describing tests, `sinonjs` for stubbing requests and `shouldjs` for assertions.
 
-Call gulp to run tests:
+Run tests:
 ```
 gulp test
 ```
@@ -119,7 +129,7 @@ If you'd like to implement some more methods from Jira's HTTP API you're welcome
 * fork the repo;
 * make an issue, look at the number — it's needed for a new feature's branch name;
 * checkout to the new branch `issue#...-implement-...-method`;
-* make pull request and wait a feedback. Thank you!
+* make pull request and wait some feedback. Thank you!
 
 # TODO
 
