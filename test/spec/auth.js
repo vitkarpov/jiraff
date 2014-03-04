@@ -32,19 +32,19 @@ describe('Auth', function() {
             jiraff.auth.restore();
         });
 
-        it('should has HTTP status code to be equal 200', function() {
+        it('should have HTTP status code to be equal 200', function() {
             jiraff.auth(dataAuth).then(function(response) {
                 response.statusCode.should.equal(200);
             });
         });
 
-        it('should returns session info', function() {
+        it('should return session info', function() {
             jiraff.auth(dataAuth).then(function(response) {
                 response.session.to.be.ok();
             });
         });
 
-        it('should returns Cookie header to sign another requests', function() {
+        it('should return Cookie header to sign another requests', function() {
             jiraff.auth(dataAuth).then(function(response) {
                 response.headers['set-cookie'].join(',').to.be.ok();
             });
@@ -52,7 +52,7 @@ describe('Auth', function() {
     });
 
     describe('response on fail', function() {
-        it('should has HTTP status not to be equal 200', function() {
+        it('should have HTTP status not to be equal 200', function() {
             jiraff.auth({
                 username: 'test',
                 password: 'wrong!'
