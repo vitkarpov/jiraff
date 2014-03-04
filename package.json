@@ -20,5 +20,8 @@
         "sinon": "1.x",
         "should": "3.x"
     },
+    "scripts": {
+        "test": "node node_modules/.bin/gulp test"
+    },
     "license": "MIT"
 }
