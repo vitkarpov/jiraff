@@ -123,5 +123,4 @@ If you'd like to implement some more methods from Jira's HTTP API you're welcome
 # TODO
 
 * doc generator from markdown
-* tests!
 * travis CI
