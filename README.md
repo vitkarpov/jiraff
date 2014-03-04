@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/jiraff.png)](http://badge.fury.io/js/jiraff)
 [![Build Status](https://travis-ci.org/vitkarpov/jiraff.png?branch=master)](https://travis-ci.org/vitkarpov/jiraff)
 
-**Jiraff** is nodejs module which provides a simple wrapper for the JIRA's RESTful API. You can use it as module itself and via CLI.
+**Jiraff** is a nodejs module which provides a javascript wrapper for the JIRA's RESTful API. You can use it in nodejs and via CLI.
 
 [Original JIRA API](https://docs.atlassian.com/jira/REST/latest/)
 
@@ -82,7 +82,7 @@ function processSearchResults(data) {
 
 ## Interface
 
-All methods should implement [Promise/A+ interface](http://promisesaplus.com/). Methods' names equal Jira's HTTP API.
+All methods should implement [Promise/A+ interface](http://promisesaplus.com/). Each method's name is equal to the corresponding Jira's one.
 
 ## Implemented methods
 
