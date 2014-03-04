@@ -40,13 +40,24 @@ describe('Auth', function() {
 
         it('should returns session info', function() {
             jiraff.auth(dataAuth).then(function(response) {
-                response.session.should.be.ok();
+                response.session.to.be.ok();
             });
         });
 
         it('should returns Cookie header to sign another requests', function() {
             jiraff.auth(dataAuth).then(function(response) {
                 response.headers['set-cookie'].join(',').to.be.ok();
+            });
+        });
+    });
+
+    describe('response on fail', function() {
+        it('should has HTTP status not to be equal 200', function() {
+            jiraff.auth({
+                username: 'test',
+                password: 'wrong!'
+            }).then(function(response) {
+                response.statusCode.not.to.be.ok();
             });
         });
     });
