@@ -5,7 +5,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var config = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../.jiraff')));
+var config = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), '.jiraff')));
 var jira = new (require('../lib/jiraff'))(config);
 
 var args = require('minimist')(process.argv.slice(2));
