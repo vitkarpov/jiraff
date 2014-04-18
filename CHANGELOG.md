@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.3
+
+* add vow-node to package
+* resolve congif relative to the cwd
+
 ## 0.1.2
 
 * add gulp
