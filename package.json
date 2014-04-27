@@ -1,6 +1,6 @@
 {
     "name": "jiraff",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "author": "vitkarpov <viktor.s.karpov@gmail.com>",
     "description": "A simple nodejs wrapper for the JIRA's RESTful API",
     "repository": {
