@@ -1,5 +1,10 @@
 # Changelog
 
+# 0.1.4
+
+* Jiraff exports an empty object
+* implement a new method: issue
+
 ## 0.1.3
 
 * add vow-node to package
