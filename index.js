@@ -1,1 +1,1 @@
-require('./lib/jiraff');
+module.exports = require(__dirname + '/lib/jiraff.js');
