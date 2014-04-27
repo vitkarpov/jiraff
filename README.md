@@ -86,7 +86,7 @@ All methods should implement [Promise/A+ interface](http://promisesaplus.com/). 
 
 ## Implemented methods
 
-There're only two methods implemented:
+Auth
 
 ```javascript
 /**
@@ -99,6 +99,8 @@ There're only two methods implemented:
 jiraff.auth(settings);
 ```
 
+Search
+
 ```javascript
 /**
  * @param {Object} settings
@@ -110,6 +112,21 @@ jiraff.search({
     // log: {total: 25, issues: [...], ...}
     console.log(response)
 })
+```
+
+Issue
+
+```javascript
+/**
+ * @param {Object} settings
+        q {String} issue's id or key
+ */
+jiraff.issue({
+    q: 'my-issue-key'
+}).then(function(response) {
+    // log: {id: "123954", key: "my-issue-key", "summary": "There's some description here, yep!"}
+    console.log(response);
+});
 ```
 
 ## Test
