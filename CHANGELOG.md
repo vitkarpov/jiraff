@@ -1,6 +1,10 @@
 # Changelog
 
-# 0.1.4
+## 0.1.5
+
+* Fix auth
+
+## 0.1.4
 
 * Jiraff exports an empty object
 * implement a new method: issue
